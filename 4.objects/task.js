@@ -14,19 +14,17 @@ Student.prototype.addMarks = function (...marks) {
     return 0;
   }
 
-  if (marks !== undefined || this.marks.length !== 0) {
+  if (marks !== undefined) {
     this.marks.push(...marks);
   }
 }
 
 Student.prototype.getAverage = function () {
-  if (!this.hasOwnProperty('marks') || !this.marks || this.marks.length === 0) {
+  if (!this.hasOwnProperty('marks') || this.marks.length === 0) {
     return 0;
   }
 
-  let average = 0;
-
-  return average = this.marks.reduce((sum, item) => sum + item, 0) / this.marks.length;
+  return this.marks.reduce((sum, item) => sum + item, 0) / this.marks.length;
 }
 
 Student.prototype.exclude = function (reason) {
