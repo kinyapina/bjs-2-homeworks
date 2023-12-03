@@ -35,7 +35,6 @@ class AlarmClock {
 
   getCurrentFormattedTime() {
     const date = new Date();
-    //console.log(date.getHours(), date.getMinutes());
     return (`${date.getHours()}:${date.getMinutes()}`);
   }
 
