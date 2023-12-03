@@ -13,29 +13,25 @@ class AlarmClock {
       console.warn('Уже присутствует звонок на это же время')
     }
 
-    this.alarmCollection.push(
-      {
-        callback: callback,
-        time: timeToStart,
-        canCall: true,
-      }
-    )
+    this.alarmCollection.push({
+      callback: callback,
+      time: timeToStart,
+      canCall: true,
+    })
   }
 
   removeClock(timeToDelete) {
-    //console.log(this.alarmCollection, "1", timeToDelete);
-    //console.log(this.alarmCollection, "2");
-
-    //this.alarmCollection = this.alarmCollection.filter((alarm) => alarm.time !== timeToDelete);
-
-    this.alarmCollection = this.alarmCollection.filter(({ time }) => time !== timeToDelete);
-
-    //console.log(this.alarmCollection, "3");
+    this.alarmCollection = this.alarmCollection.filter(({
+      time
+    }) => time !== timeToDelete);
   }
 
   getCurrentFormattedTime() {
-    const date = new Date();
-    return (`${date.getHours()}:${date.getMinutes()}`);
+    const date = new Date().toLocaleTimeString("ru-Ru", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+    return date;
   }
 
 
